@@ -1,11 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sete Maravilhas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            background-color: #333;
+            color: white;
+            padding: 30px 10px  ;
+            margin: 0;
+            font-size: 36px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #333;
+            margin-top: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .container {
+            width: 40%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .section {
+            background-color: white;
+            border-radius: 8px;
+            margin-bottom: 50px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .section:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .section h2 {
+            color: #0066cc;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            font-size: 14px;
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
-   <p>ola mundo</p> 
+    <h1>As Sete Maravilhas do Mundo Moderno</h1>
+
+    <div class="container">
+        <div class="section">
+            <img class="img" src="{% static 'Chichen_itza.jpg' %}" alt="Chichen Itza">
+            <h2>Chichen Itza</h2>
+            <p>Chichen Itza é um importante sítio arqueológico maia localizado na Península de Yucatán, México. Fundada entre os séculos VI e X d.C., a cidade foi um centro religioso, político e comercial. Seus principais pontos incluem a pirâmide de Kukulkán (El Castillo), famosa pela projeção da sombra de uma serpente durante os equinócios; o Campo de Jogo de Bola, usado para rituais religiosos; o Observatório (El Caracol), voltado para observações astronômicas; e o Cenote Sagrado, onde eram feitas oferendas. Chichen Itza foi abandonada antes da chegada dos espanhóis.</p>
+        </div>
+
+        <div class="section">
+            <img class="img" src="{% static 'Taj-Mahal-1.jpg' %}" alt="Taj Mahal">
+            <h2>Taj Mahal</h2>
+            <p>O Taj Mahal é um famoso monumento localizado em Agra, Índia, construído pelo imperador mogol Shah Jahan em memória de sua esposa Mumtaz Mahal. A construção, feita em mármore branco, mistura elementos da arquitetura islâmica, persa e indiana e é considerada um símbolo do amor eterno. </p>
+        </div>
+
+        <div class="section">
+            <img class="img" src="{% static 'Colosseo.jpg' %}" alt="Coliseu">
+            <h2>Coliseu</h2>
+            <p>O Coliseu é um famoso anfiteatro localizado em Roma, Itália, construído entre 70 e 80 d.C. pelos imperadores romanos Vespasiano e Tito. Era usado para eventos como lutas de gladiadores e batalhas públicas, com capacidade para até 70.000 espectadores. Sua arquitetura impressionante, feita de concreto e pedra, reflete o poder do Império Romano.</p>
+        </div>
+
+        <div class="section">
+            <img class="img" src="{% static 'muralha_.jpg' %}" alt="Grande Muralha da China">
+            <h2>Grande Muralha da China</h2>
+            <p>A Muralha da China é uma enorme fortificação que se estende por cerca de 21.196 km ao longo do norte da China. Construída entre o século 7 a.C. e o século 17, sua principal função era proteger o Império Chinês de invasões. Feita de materiais variados, como terra, pedra e tijolos, ela inclui fortalezas e torres de vigilância.</p>
+        </div>
+
+        <div class="section">
+            <img class="img" src="{% static 'machu_picchu.jpg' %}" alt="Machu Picchu">
+            <h2>Machu Picchu</h2>
+            <p>Machu Picchu é uma antiga cidade inca localizada nos Andes peruanos, a cerca de 2.430 metros acima do nível do mar. Construída no século XV, foi redescoberta em 1911 pelo explorador Hiram Bingham. Acredita-se que tenha sido um importante centro religioso e político. Suas impressionantes estruturas de pedra, como templos e terraços agrícolas, refletem a habilidade arquitetônica dos incas.</p>
+        </div>
+
+        <div class="section">
+            <img class="img" src="{% static 'Cristo_Redentor.jpg' %}" alt="Cristo Redentor">
+            <h2>Cristo Redentor</h2>
+            <p>O Cristo Redentor é uma famosa estátua localizada no topo do Corcovado, no Rio de Janeiro, Brasil. Inaugurada em 1931, a estátua de 30 metros de altura representa Jesus Cristo com os braços abertos, simbolizando acolhimento e paz. É um ícone do Brasil e Patrimônio Mundial da UNESCO, atraindo milhões de visitantes anualmente.</p>
+        </div>
+
+        <div class="section">
+            <img class="img" src="{% static 'petra.jpg' %}" alt="Petra">
+            <h2>Petra</h2>
+            <p>Petra é uma antiga cidade nabateia localizada na Jordânia, famosa por sua arquitetura esculpida em rochas de arenito rosa. Fundada no século VI a.C., Petra foi um importante centro comercial e cultural. Seus principais pontos incluem o Tesouro (Al-Khazneh), o Mosteiro (Ad-Deir) e o Teatro Romano. A cidade foi redescoberta em 1812 pelo explorador suíço Johann Ludwig Burckhardt e é Patrimônio Mundial da UNESCO.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Sete Maravilhas do Mundo Moderno. Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>

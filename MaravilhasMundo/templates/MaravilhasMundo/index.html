@@ -1,137 +1,203 @@
 {% load static %}
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sete Maravilhas</title>
+    <title>Maravilhas do Rio Grande do Norte</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 20px;
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #f7c744, #ff5e57); /* Gradiente inspirado no pôr do sol */
             color: #333;
-        }
-
-        h1 {
-            background-color: #333;
-            color: white;
-            padding: 30px 10px  ;
-            margin: 0;
-            font-size: 36px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
-        }
-
-        h2 {
-            font-size: 28px;
-            color: #333;
-            margin-top: 30px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        p {
-            font-size: 16px;
-            color: #555;
             line-height: 1.6;
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 0 15px;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
 
+        h1, h2 {
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+        }
+
+        /* Header Styles */
+        header {
+            background: url('https://source.unsplash.com/1600x900/?beach,travel') no-repeat center center/cover;
+            height: 75vh; /* Ajustei para uma proporção mais confortável */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background-attachment: fixed;
+        }
+
+        header h1 {
+            font-size: 3rem; /* Ajustei a fonte para que fique equilibrado */
+            text-transform: uppercase;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            margin-top: 20px;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        header .btn-sobre {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background-color: #ff5e57;
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(255, 94, 87, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        header .btn-sobre:hover {
+            background-color: #ff4242;
+            transform: translateY(-3px);
+        }
+
+        /* Section Styles */
         .container {
-            width: 40%;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .img {
-            width: 100%;
-            max-width: 800px;
-            height: auto;
-            display: block;
-            margin: 30px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 1200px; /* Limitei o tamanho máximo para maior controle */
+            margin: 50px auto;
         }
 
         .section {
-            background-color: white;
-            border-radius: 8px;
+            background-color: #ffffff;
+            border-radius: 15px;
             margin-bottom: 50px;
-            padding: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
         }
 
-        .section:nth-child(even) {
-            background-color: #f9f9f9;
+        .section:hover {
+            transform: scale(1.02);
+        }
+
+        .section img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px 15px 0 0;
+            object-fit: cover;
         }
 
         .section h2 {
-            color: #0066cc;
+            color: #f7a600;
+            font-size: 2.2rem; /* Ajustei o tamanho para manter o equilíbrio */
+            padding: 20px;
+            font-weight: 600;
+            text-align: center;
         }
 
-        footer {
-            text-align: center;
+        .section p {
+            font-size: 1.1rem;
             padding: 20px;
+            text-align: justify;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
             background-color: #333;
             color: white;
-            font-size: 14px;
-            margin-top: 50px;
+            text-align: center;
+            padding: 30px;
+            font-size: 1rem;
         }
+
+        footer p {
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .section h2 {
+                font-size: 2rem;
+            }
+
+            .section p {
+                font-size: 1rem;
+            }
+        }
+
     </style>
 </head>
 <body>
-    <h1>As Sete Maravilhas do Mundo Moderno</h1>
 
+    <!-- Header Section -->
+    <header>
+        <h1>Explore as Maravilhas do RN</h1>
+        <p>Uma jornada pelas belezas naturais do Rio Grande do Norte</p>
+        <a href="{% url 'sobre' %}" class="btn-sobre">Sobre o Projeto</a>
+    </header>
+
+    <!-- Main Content Section -->
     <div class="container">
+        <!-- Morro do Careca -->
         <div class="section">
-            <img class="img" src="{% static 'Chichen_itza.jpg' %}" alt="Chichen Itza">
-            <h2>Chichen Itza</h2>
-            <p>Chichen Itza é um importante sítio arqueológico maia localizado na Península de Yucatán, México. Fundada entre os séculos VI e X d.C., a cidade foi um centro religioso, político e comercial. Seus principais pontos incluem a pirâmide de Kukulkán (El Castillo), famosa pela projeção da sombra de uma serpente durante os equinócios; o Campo de Jogo de Bola, usado para rituais religiosos; o Observatório (El Caracol), voltado para observações astronômicas; e o Cenote Sagrado, onde eram feitas oferendas. Chichen Itza foi abandonada antes da chegada dos espanhóis.</p>
+            <img src="{% static 'careca.jpg' %}" alt="Morro do Careca">
+            <h2>Morro do Careca</h2>
+            <p>
+                O Morro do Careca é o principal cartão-postal de Natal. Com uma vista deslumbrante da Praia de Ponta Negra e cercado por vegetação, ele é um destino imperdível para quem visita o Rio Grande do Norte.
+            </p>
         </div>
 
+        <!-- Forte dos Reis Magos -->
         <div class="section">
-            <img class="img" src="{% static 'Taj-Mahal-1.jpg' %}" alt="Taj Mahal">
-            <h2>Taj Mahal</h2>
-            <p>O Taj Mahal é um famoso monumento localizado em Agra, Índia, construído pelo imperador mogol Shah Jahan em memória de sua esposa Mumtaz Mahal. A construção, feita em mármore branco, mistura elementos da arquitetura islâmica, persa e indiana e é considerada um símbolo do amor eterno. </p>
+            <img src="{% static 'forte.jpg' %}" alt="Forte dos Reis Magos">
+            <h2>Forte dos Reis Magos</h2>
+            <p>
+                Um dos monumentos mais emblemáticos de Natal, o Forte dos Reis Magos oferece uma rica história de proteção à costa brasileira, além de uma vista espetacular da cidade e do mar.
+            </p>
         </div>
 
+        <!-- Maior Cajueiro do Mundo -->
         <div class="section">
-            <img class="img" src="{% static 'Colosseo.jpg' %}" alt="Coliseu">
-            <h2>Coliseu</h2>
-            <p>O Coliseu é um famoso anfiteatro localizado em Roma, Itália, construído entre 70 e 80 d.C. pelos imperadores romanos Vespasiano e Tito. Era usado para eventos como lutas de gladiadores e batalhas públicas, com capacidade para até 70.000 espectadores. Sua arquitetura impressionante, feita de concreto e pedra, reflete o poder do Império Romano.</p>
+            <img src="{% static 'cajueiro.jpg' %}" alt="Maior Cajueiro do Mundo">
+            <h2>Maior Cajueiro do Mundo</h2>
+            <p>
+                Localizado em Pirangi, o Maior Cajueiro do Mundo é um verdadeiro fenômeno natural. Com sua copa que cobre mais de 8.500 m², ele é uma das maiores curiosidades botânicas do mundo.
+            </p>
         </div>
 
+        <!-- Praia da Pipa -->
         <div class="section">
-            <img class="img" src="{% static 'muralha_.jpg' %}" alt="Grande Muralha da China">
-            <h2>Grande Muralha da China</h2>
-            <p>A Muralha da China é uma enorme fortificação que se estende por cerca de 21.196 km ao longo do norte da China. Construída entre o século 7 a.C. e o século 17, sua principal função era proteger o Império Chinês de invasões. Feita de materiais variados, como terra, pedra e tijolos, ela inclui fortalezas e torres de vigilância.</p>
-        </div>
-
-        <div class="section">
-            <img class="img" src="{% static 'machu_picchu.jpg' %}" alt="Machu Picchu">
-            <h2>Machu Picchu</h2>
-            <p>Machu Picchu é uma antiga cidade inca localizada nos Andes peruanos, a cerca de 2.430 metros acima do nível do mar. Construída no século XV, foi redescoberta em 1911 pelo explorador Hiram Bingham. Acredita-se que tenha sido um importante centro religioso e político. Suas impressionantes estruturas de pedra, como templos e terraços agrícolas, refletem a habilidade arquitetônica dos incas.</p>
-        </div>
-
-        <div class="section">
-            <img class="img" src="{% static 'Cristo_Redentor.jpg' %}" alt="Cristo Redentor">
-            <h2>Cristo Redentor</h2>
-            <p>O Cristo Redentor é uma famosa estátua localizada no topo do Corcovado, no Rio de Janeiro, Brasil. Inaugurada em 1931, a estátua de 30 metros de altura representa Jesus Cristo com os braços abertos, simbolizando acolhimento e paz. É um ícone do Brasil e Patrimônio Mundial da UNESCO, atraindo milhões de visitantes anualmente.</p>
-        </div>
-
-        <div class="section">
-            <img class="img" src="{% static 'petra.jpg' %}" alt="Petra">
-            <h2>Petra</h2>
-            <p>Petra é uma antiga cidade nabateia localizada na Jordânia, famosa por sua arquitetura esculpida em rochas de arenito rosa. Fundada no século VI a.C., Petra foi um importante centro comercial e cultural. Seus principais pontos incluem o Tesouro (Al-Khazneh), o Mosteiro (Ad-Deir) e o Teatro Romano. A cidade foi redescoberta em 1812 pelo explorador suíço Johann Ludwig Burckhardt e é Patrimônio Mundial da UNESCO.</p>
+            <img src="{% static 'pipa.jpg' %}" alt="Praia da Pipa">
+            <h2>Praia da Pipa</h2>
+            <p>
+                Conhecida pelas suas falésias coloridas e águas cristalinas, a Praia da Pipa é um dos destinos mais procurados do estado, famosa por suas belezas naturais e pela vida marinha.
+            </p>
         </div>
     </div>
 
+    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2025 Sete Maravilhas do Mundo Moderno. Todos os direitos reservados.</p>
+        <p>&copy; 2025 Maravilhas do Rio Grande do Norte. Todos os direitos reservados.</p>
     </footer>
+
 </body>
 </html>
+
